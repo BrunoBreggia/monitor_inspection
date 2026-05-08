@@ -200,7 +200,7 @@ def create_file(log_dir, latency, avg_time, storage_limit):
     cpu_manufacturer = get_cpu_manufacturer()
     log_dir = Path(log_dir)
     log_dir.mkdir(parents=True, exist_ok=True)
-    log_file = log_dir / f"monitor_{hostname}__{start_ts}.csv" # can remove timestamp from filename if bothersome
+    log_file = log_dir / f"monitor_{hostname}_{start_ts}.csv" # can remove timestamp from filename if bothersome
 
     # Conteo de GPUs en la pc
     gpu_count = detect_gpus()

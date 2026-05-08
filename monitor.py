@@ -104,7 +104,7 @@ def get_cpu_stats():
     Returns a 3-tuple with: 
         * CPU utilization percentage, 
         * CPU temperature in Celsius, and 
-        * RAM consumption in MB.
+        * RAM consumption in MiB.
     If any error occurs during data retrieval, the corresponding value will be set to 0.
     """
     # Get CPU utilization percentage
@@ -152,7 +152,7 @@ def get_cpu_stats():
     except Exception:
         temp_val = 0.0
 
-    # Get occupied RAM in MB
+    # Get occupied RAM in MiB
     try:
         mem = subprocess.run(['free', '-m'], capture_output=True, text=True)
         for line in mem.stdout.split('\n'):
@@ -213,7 +213,7 @@ def create_file(log_dir, latency, avg_time, storage_limit):
         writer.writerow([f"hostname:{hostname}", f"cpu_manufacturer:{cpu_manufacturer}", f"total_ram_gb:{total_ram_gb:.2f}", f"gpu_count:{gpu_count}",
                          f"latency_sec:{latency}", f"avg_time_min:{avg_time}", f"storage_limit_days:{storage_limit}"])
         # write column headers
-        header = ["Timestamp", "CPU_Util(%)", "CPU_Temp(C)", "RAM_Used(MB)"]
+        header = ["Timestamp", "CPU_Util(%)", "CPU_Temp(C)", "RAM_Used(MiB)"]
         for g in range(gpu_count):
             header.extend([f"GPU{g}_Util(%)", f"GPU{g}_Temp(C)", f"GPU{g}_Power(W)", f"GPU{g}_Mem(MiB)"])
         writer.writerow(header)

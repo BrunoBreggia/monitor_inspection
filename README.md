@@ -113,17 +113,19 @@ A continuación los parámetros configurables del proceso, con sus valores por o
 
   **ACLARACIÓN:** Sin este parámetro el proceso correrá íntegramente en la terminal en la que se ejecutó el script (al cerrar la terminal se terminará el proceso).
 
-  Una vez instalado por esta vía, se puede verificar el estado del servicio mediante el siguiente comando:
+## Estado del daemon
 
-  ```
-  $ sudo systemctl status monitor-inspection
-  ```
+Una vez instalado el daemon, se puede verificar el estado del mismo mediante el siguiente comando:
 
-  Para matar el servicio, correr el comando:
+```
+$ sudo systemctl status monitor-inspection
+```
 
-  ```
-  $ sudo systemctl stop monitor-inspection
-  ```
+Para matar el servicio, correr el comando:
+
+```
+$ sudo systemctl stop monitor-inspection
+```
 
 
 

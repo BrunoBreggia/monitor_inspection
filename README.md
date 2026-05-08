@@ -37,18 +37,25 @@ $ sudo apt update
 $ sudo apt upgrade
 ```
 
-Si no tienes el comando `mpstat`…
+Si no tienes el comando `mpstat`...
 ```
 $ sudo apt install sysstat
-$ mpstat
+$ mpstat -V
 ```
 
-Si no tienes el comando `sensors`…
+Si no tienes el comando `sensors`...
 ```
 $ sudo apt install lm-sensors
 $ sudo sensors-detect # (aceptar opciones por defecto para configurar los sensores)
-$ sensors
+$ sensors -v
 ```
+
+Si no tiene `git` instalado...
+```
+$ sudo apt install git
+$ git -v
+```
+
 
 Si se tiene GPUs funcionales, se asume que se encuentra funcional el programa `nvidia-smi`. De caso contrario, se considerará que no hay GPUs en la unidad.
 

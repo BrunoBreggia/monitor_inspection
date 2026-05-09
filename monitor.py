@@ -3,8 +3,8 @@
 Version 3.0 - 2026/05/06
 Leer instructivo de instalación correspondiente para usar de manera adecuada en los servidores del sinc(i).
 
-En resumen, usar asi: 
-$ python3 monitor_v3.py 
+En resumen, usar asi:
+$ python3 monitor_v3.py
 
 Valores por defecto:
 $ python3 monitor_v3.py [--latency 5] [--avg-time 1] [--max-storage 365] [--log-directory /DATA/logs]

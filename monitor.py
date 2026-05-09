@@ -7,7 +7,7 @@ En resumen, usar asi:
 $ python3 monitor_v3.py 
 
 Valores por defecto:
-$ python3 monitor_v3.py [--latency 5] [--avg-time 1] [--max-storage 365] [--log-directory ./logs]
+$ python3 monitor_v3.py [--latency 5] [--avg-time 1] [--max-storage 365] [--log-directory /DATA/logs]
 
 Usar el argumento -i (más sudo) para que quede corriendo en segundo plano (un daemon con alias monitor-inspection), 
 con reinicio automátioo ante reboot del equipo (en este caso especificar log directory con ruta absoluta):
@@ -40,7 +40,7 @@ parser.add_argument("-f", "--latency", type=int, default=5, help="Defines measur
 parser.add_argument("-n", "--avg-time", type=int, default=1, help="Defines period of time (min) to average the measurements with latency p. DEFAULT: 1 min")
 parser.add_argument("-s", "--max-storage", type=int, default=365, help="Defines maximum amount of days to save server data. DAFAULT: 365 days")
 parser.add_argument("-d", "--log-directory", type=str, default="/DATA/monitor_logs", help="Defines the directory to save log files. DEFAULT: ./logs")
-parser.add_argument("-i", "--install", action="store_true", help="Launches the process to run with automatic restart at reboot")
+parser.add_argument("-i", "--install", action="store_true", help="Launches the process as a daemon, with automatic restart at reboot")
 # To check process > $ sudo systemctl status monitor-inspection
 # To kill  process > $ sudo systemctl stop monitor-inspection
 # Parse the arguments
@@ -88,7 +88,7 @@ def detect_gpus():
 
 def get_total_ram_gb():
     """
-    Gets total RAM in GB using the 'free -h' command. Returns 0 if an error occurs.
+    Gets total RAM in GiB using the 'free -h' command. Returns 0 if an error occurs.
     """
     try:
         result = subprocess.run(["free", "-h"], capture_output=True, text=True)
@@ -209,8 +209,8 @@ def create_file(log_dir, latency, avg_time, storage_limit):
     with open(log_file, 'w', newline='') as f:
         writer = csv.writer(f)
         # write hostname, total RAM and GPU count as metadata
-        total_ram_gb = get_total_ram_gb()
-        writer.writerow([f"hostname:{hostname}", f"cpu_manufacturer:{cpu_manufacturer}", f"total_ram_gb:{total_ram_gb:.2f}", f"gpu_count:{gpu_count}",
+        total_ram_gb = get_total_ram_gib()
+        writer.writerow([f"hostname:{hostname}", f"cpu_manufacturer:{cpu_manufacturer}", f"total_ram_gib:{total_ram_gib:.2f}", f"gpu_count:{gpu_count}",
                          f"latency_sec:{latency}", f"avg_time_min:{avg_time}", f"storage_limit_days:{storage_limit}"])
         # write column headers
         header = ["Timestamp", "CPU_Util(%)", "CPU_Temp(C)", "RAM_Used(MiB)"]

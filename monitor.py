@@ -10,8 +10,8 @@ Valores por defecto:
 $ python3 monitor_v3.py [--latency 5] [--avg-time 1] [--max-storage 365] [--log-directory /DATA/logs]
 
 Usar el argumento -i (más sudo) para que quede corriendo en segundo plano (un daemon con alias monitor-inspection), 
-con reinicio automátioo ante reboot del equipo (en este caso especificar log directory con ruta absoluta):
-$ sudo python3 monitor_v3.py -i [--log-directory]
+con reinicio automático ante reboot del equipo
+$ sudo python3 monitor_v3.py -i
 
 En tal caso, puedes controlar su estado y matar el daemon con los siguientes comandos:
 

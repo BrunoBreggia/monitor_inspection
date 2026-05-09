@@ -67,7 +67,7 @@ def get_cpu_manufacturer():
     try:
         cpu = subprocess.run(['lscpu'], capture_output=True, text=True)
         for line in cpu.stdout.split('\n'):
-            if 'ID de fabricante:' in line:
+            if 'ID' in line:
                 manufacturer = line.split()[-1]
                 break 
     except Exception:

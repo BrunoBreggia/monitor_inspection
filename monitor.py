@@ -163,7 +163,7 @@ def get_cpu_stats():
             ram_free = 0
     except Exception:
         ram_free = 0
-    ram_used = get_total_ram_gb()*1024 - ram_free
+    ram_used = get_total_ram_Gib()*1024 - ram_free
 
     return cpu_util, temp_val, ram_used
 

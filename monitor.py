@@ -209,8 +209,8 @@ def create_file(log_dir, latency, avg_time, storage_limit):
     with open(log_file, 'w', newline='') as f:
         writer = csv.writer(f)
         # write hostname, total RAM and GPU count as metadata
-        total_ram_gb = get_total_ram_Gib()
-        writer.writerow([f"hostname:{hostname}", f"cpu_manufacturer:{cpu_manufacturer}", f"total_ram_gib:{total_ram_gib:.2f}", f"gpu_count:{gpu_count}",
+        total_ram_Gib = get_total_ram_Gib()
+        writer.writerow([f"hostname:{hostname}", f"cpu_manufacturer:{cpu_manufacturer}", f"total_ram_gib:{total_ram_Gib:.2f}", f"gpu_count:{gpu_count}",
                          f"latency_sec:{latency}", f"avg_time_min:{avg_time}", f"storage_limit_days:{storage_limit}"])
         # write column headers
         header = ["Timestamp", "CPU_Util(%)", "CPU_Temp(C)", "RAM_Used(MiB)"]

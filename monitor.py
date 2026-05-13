@@ -7,7 +7,7 @@ En resumen, usar asi:
 $ python3 monitor_v3.py
 
 Valores por defecto:
-$ python3 monitor_v3.py [--latency 5] [--avg-time 1] [--max-storage 365] [--log-directory /DATA/logs]
+$ python3 monitor_v3.py [--latency 5] [--avg-time 1] [--max-storage 365] [--log-directory /DATA/monitor_logs]
 
 Usar el argumento -i (más sudo) para que quede corriendo en segundo plano (un daemon con alias monitor-inspection), 
 con reinicio automático ante reboot del equipo
